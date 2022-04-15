@@ -4,7 +4,7 @@
 body{
     font-family: 'Montserrat', sans-serif; 
    }
-#contacto{
+#contacto, #inicio {
     background-image: url("../images/fondo-contacto.png");
     background-size: 100%;
     background-repeat: no-repeat;
@@ -15,6 +15,19 @@ body{
     background-size: 100%;
     background-repeat: no-repeat;
     margin: 0px;
+}
+#inicio .cohete {
+    height: 400px;
+}
+#inicio .input-home p{
+    color: white;
+    font-size: 17px;
+    border: 1px solid white;
+    border-radius: 50px;
+    font-weight: 600;
+}
+#proyecyos footer, #proyectos footer a, #sobre-mi footer, #sobre-mi footer a {
+    color: #e2000e;
 }
 h1{
     color: #e2000e;
@@ -41,14 +54,19 @@ textarea{
     border-radius: 14px;
 }
 .btn-rojo{
-    background-color:#e2000e ;
+    background-color:#e2000e !important;
     color: white !important;
     border-radius: 14px;
 }
 .btn-rojo:hover{
-    background-color: #370a6d;
+    background-color: #370a6d !important;
     color: white;
     border-radius: 14px;
+}
+.btn {
+    color: #370a6d;
+    background-color: white;
+    border: none;
 }
 nav .active{
     border: 1px solid #e2000e;
