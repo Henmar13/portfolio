@@ -1,5 +1,20 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 $pg = "contacto";
+
+if($_POST){
+    $nombre = $_POST["txtNombre"];
+    $correo = $_POST["txtCorreo"];
+    $telefono = $_POST["txtTelefono"];
+    $mensaje = $_POST["txtMensaje"];
+
+    if ($nombre && $correo && $telefono && $mensaje != "") {
+        header("Location: confirmacion-envio.php");
+    }    
+}
 
 ?>
 
@@ -33,22 +48,21 @@ $pg = "contacto";
             <div class="col-12 col-sm-6">
                 <form action="" method="post">
                     <div class="mb-3">
-                        <input type="text" name="txtNombre" id="txtNombre" placeholder="Nombre" class="form-control">
+                        <input type="text" name="txtNombre" id="txtNombre" placeholder="Nombre" class="form-control shadow" require>
                     </div>
                     <div class="mb-3">
-                        <input type="email" name="txtCorreo" id="txtCorreo" placeholder="Correo" class="form-control">
+                        <input type="email" name="txtCorreo" id="txtCorreo" placeholder="Correo" class="form-control shadow" require>
                     </div>
                     <div class="mb-3">
                         <input type="tel" name="txtTelefono" id="txtTelefono" placeholder="Télefono y/o Whatssap"
-                            class="form-control">
+                            class="form-control shadow" require>
                     </div>
                     <div class="mb-3">
                         <textarea name="txtMensaje" id="txtMensaje" placeholder="Escribir aqui tu mensaje"
-                            class="form-control"></textarea>
+                            class="form-control shadow" require></textarea>
                     </div>
-                    <div class="mb-3">
-                        <button type="submit" id="btnEnviar" name="btnEnviar"
-                            class="btn btn-blanco px-4">ENVIAR</button>
+                    <div class="me-auto text-right">
+                        <button id="btnEnviar" name="btnEnviar" class="btn btn blanco px-4">ENVIAR</button>
                     </div>
                 </form>
             </div>
