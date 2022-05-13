@@ -11,8 +11,34 @@ if($_POST){
     $telefono = $_POST["txtTelefono"];
     $mensaje = $_POST["txtMensaje"];
 
-    if ($nombre && $correo && $telefono && $mensaje != "") {
-        header("Location: confirmacion-envio.php");
+// Varios destinatarios
+$para  = 'henmarmedina@gmail.com' . ', '; // atención a la coma
+
+
+// título
+$título = 'Recibiste un nuevo mensaje';
+
+// mensaje
+$mensaje = "
+Nombre: $nombre <br>
+Correo: $correo <br>
+Telefono: $telefono <br>
+Mensaje: $mensaje
+";
+
+// Para enviar un correo HTML, debe establecerse la cabecera Content-type
+$cabeceras  = 'MIME-Version: 1.0' . "\r\n";
+$cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
+// Cabeceras adicionales
+$cabeceras .= 'To: henmarmedina@gmail.com>' . "\r\n";
+$cabeceras .= 'From: contacto@henmarmedina.com.ar>' . "\r\n";
+
+// Enviarlo
+mail($para, $título, $mensaje, $cabeceras);
+
+    //if ($nombre && $correo && $telefono && $mensaje != "") {
+header("Location: confirmacion-envio.php");
     }    
 }
 
